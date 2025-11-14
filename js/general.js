@@ -299,8 +299,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // Navigation with FaceLogo Transition
 document.addEventListener('DOMContentLoaded', function() {
     // Сохраняем предыдущую страницу в localStorage при переходе
-    if (window.location.pathname.includes('main.html')) {
-        localStorage.setItem('previousPage', 'main.html');
+    if (window.location.pathname.includes('index.html')) {
+        localStorage.setItem('previousPage', 'index.html');
     } else if (window.location.pathname.includes('cataloge.html') || 
                window.location.pathname.includes('gallerry.html')) {
         localStorage.setItem('previousPage', window.location.pathname.split('/').pop());
@@ -309,9 +309,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Если мы на странице faceLogo.html
     if (window.location.pathname.includes('faceLogo.html')) {
         const previousPage = localStorage.getItem('previousPage');
-        const targetPage = previousPage === 'main.html' ? 
+        const targetPage = previousPage === 'index.html' ? 
             (localStorage.getItem('targetPage') || 'cataloge.html') : 
-            'main.html';
+            'index.html';
 
         // Добавляем класс для начала анимации
         const logo = document.querySelector('.facelogo2');
@@ -338,7 +338,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Обрабатываем клики по ссылкам на main.html
-    if (window.location.pathname.includes('main.html')) {
+    if (window.location.pathname.includes('index.html')) {
         document.querySelectorAll('a').forEach(link => {
             const href = link.getAttribute('href');
             if (href && (href.includes('cataloge.html') || href.includes('gallerry.html'))) {
@@ -354,7 +354,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Обрабатываем клики по ссылкам на cataloge.html и gallerry.html
     if (window.location.pathname.includes('cataloge.html') || 
         window.location.pathname.includes('gallerry.html')) {
-        document.querySelectorAll('a[href="main.html"]').forEach(link => {
+        document.querySelectorAll('a[href="index.html"]').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 window.location.href = 'faceLogo.html';
